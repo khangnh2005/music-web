@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv"
 import * as database from "./config/database"
+import Topic from "./models/topic.model";
 
 
 const app: Express = express();
@@ -19,7 +20,11 @@ dotenv.config()
 database.connect()
 //database connect END
 
-app.get("/topics", (req: Request, res: Response) => {
+app.get("/topics", async (req: Request, res: Response) => {
+  const topic = await Topic.find({
+    deleted : false
+  })
+  console.log(topic)
   res.render("client/pages/topics/index")
 });
 
