@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv"
 import * as database from "./config/database"
 import Topic from "./models/topic.model";
+import clientRoutes from "./routes/client/index.route";
 
 
 const app: Express = express();
@@ -20,13 +21,9 @@ dotenv.config()
 database.connect()
 //database connect END
 
-app.get("/topics", async (req: Request, res: Response) => {
-  const topic = await Topic.find({
-    deleted : false
-  })
-  console.log(topic)
-  res.render("client/pages/topics/index")
-});
+//route
+clientRoutes(app)
+//route End
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
