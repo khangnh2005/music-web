@@ -21,6 +21,10 @@ dotenv.config()
 database.connect()
 //database connect END
 
+//Nhung file tinh 
+app.use(express.static("public"))
+//Nhung file tinh End
+
 //route
 clientRoutes(app)
 //route End
