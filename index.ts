@@ -29,6 +29,8 @@ app.use(express.static("public"))
 clientRoutes(app)
 //route End
 
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`);
+database.connect().then(() => {
+  app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
+  });
 });

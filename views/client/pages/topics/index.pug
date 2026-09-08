@@ -3,6 +3,8 @@ include ../../mixins/box-head
 block main
   .container.my-3 
     .row
+        +box-head(titlePage)
+    .row
       each topic in topics 
         .col-6.mb-3
           div(class="card")
