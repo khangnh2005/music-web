@@ -30,3 +30,32 @@ export const index = async (req : Request ,res : Response) =>{
     listSong : listSong
   });
 }
+
+export const detail = async (req : Request ,res : Response) =>{
+  const slugSong = req.params.slugSong;
+  const song : any = await Song.findOne({
+    slug : slugSong , 
+    deleted : false ,
+    status : "active"
+  }).lean();
+  
+  const infoSinger = await Singer.findOne({
+    _id : song.singerId,
+    deleted : false ,
+    status : "active"
+  }).select("fullName");
+  (song as any)["infoSinger"] = infoSinger
+
+  const infoTopic = await Topic.findOne({
+    _id : song.topicId,
+    deleted : false ,
+    status : "active"
+  }).select("title");
+  
+  (song as any)["infoTopic"] = infoTopic
+  res.render("client/pages/songs/detail" , {
+    titlePage : song.title,
+    song : song
+  })
+}
+
