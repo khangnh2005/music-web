@@ -11,7 +11,7 @@ if(aplayer){
             name: dataSong.title,
             artist: dataSong.infoSinger.fullName,
             url: dataSong.audio,
-            cover: dataSong.avatar
+
         }],
         autoplay : true,
     });
@@ -29,6 +29,31 @@ if(aplayer){
 
 //Aplayer End
 
+//Button-like 
+const buttonLike = document.querySelector("[button-like]")
+if(buttonLike){
+    buttonLike.addEventListener("click",() =>{
+        const idSong = buttonLike.getAttribute("button-like")
+        const isActive = buttonLike.classList.contains("active")
+        console.log(isActive) 
+        
+        const typeLike = isActive ? "dislike" : "like"
+        const link = `/songs/like/${typeLike}/${idSong}`
+        
+        const option = {
+            method : "PATCH"
+        }
+        fetch(link , option)
+         .then(res => res.json())
+         .then(data=>{
+            const span = buttonLike.querySelector("span")
+            span.innerHTML = `${data.like}`
+            buttonLike.classList.toggle("active")
+            
+         })
+    })
+}
+//Button-like end
 
 
 

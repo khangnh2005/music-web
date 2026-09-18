@@ -106,10 +106,22 @@
   margin-bottom: 10px;
   display: inline-flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .singer-detail .inner-action i {
   margin-right: 5px;
+}
+.singer-detail  .inner-heart i {
+  color: red;
+}
+.singer-detail  .inner-like i {
+  color: blue;
+}
+
+.singer-detail  .inner-like.active i  {
+  color: blue;
+  font-weight: 900;
 }
 
 .singer-detail .inner-play {
@@ -129,6 +141,7 @@
   /* spin */
   animation: spinner 10s linear infinite;
   border: 7px solid orange;
+  animation-play-state: paused;
 }
 
 .singer-detail .inner-avatar img {
