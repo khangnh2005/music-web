@@ -115,6 +115,14 @@
 .singer-detail  .inner-heart i {
   color: red;
 }
+.singer-detail  .inner-heart.active i {
+  color: red;
+  font-weight: 900;
+}
+.singer-detail  .inner-heart.active{
+  color: red;
+  
+}
 .singer-detail  .inner-like i {
   color: blue;
 }
