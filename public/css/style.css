@@ -195,3 +195,16 @@
   }
 }
 /* End singer-detail */
+
+/* favorite-song */
+.song-item .inner-content .inner-heart.active {
+  color: red;
+}
+.song-item .inner-content .inner-heart{
+  cursor: pointer;
+}
+
+.song-item .inner-content .inner-heart.active i{
+  font-weight: 900;
+}
+/* favorite-song end */
