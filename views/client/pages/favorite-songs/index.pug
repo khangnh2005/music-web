@@ -12,11 +12,11 @@ block main
                 .col-6.mb-3
                     div(class="song-item")
                         div(class="inner-image")
-                            a(href="/songs/detail/:slugSong")
-                            img(src=favoriteSong.songDetail.avatar)
+                            a(href=`/songs/detail/${favoriteSong.songDetail.slug}`)
+                                img(src=favoriteSong.songDetail.avatar)
                         div(class="inner-content")
                             div(class="inner-title")
-                                a(href="/songs/detail/:slugSong") #{favoriteSong.songDetail.title}
+                                a(href=`/songs/detail/${favoriteSong.songDetail.slug}`) #{favoriteSong.songDetail.title}
                             div(class="inner-singer") <i class="fa-solid fa-microphone-lines"></i> #{favoriteSong.singerDetail.fullName} 
                             div(class="inner-heart active" button-favorite=favoriteSong.songId)
                                 <i class="fa-regular fa-heart"></i> Yêu thích
