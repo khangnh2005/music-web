@@ -5,6 +5,7 @@ import { info } from "node:console";
 import { convertToString } from "../../helpers/convertToSlug";
 
 export const result = async ( req : Request , res : Response ) => {
+    const type = req.params.type
     const keyword : string = `${req.query.keyword}`;
     let newSongs : any = [];
 
@@ -19,21 +20,45 @@ export const result = async ( req : Request , res : Response ) => {
         
 
         for (const song of songs) {
-            const infoSinger = await Singer.findOne({
+            const infoSinger : any = await Singer.findOne({
                 _id : song.singerId
             });
-            (song as any)["infoSinger"] = infoSinger
-
+            // (song as any)["infoSinger"] = infoSinger
+            newSongs.push({
+                id: song.id,
+                title: song.title,
+                avatar: song.avatar,
+                like: song.like,
+                slug: song.slug,
+                infoSinger: {
+                    fullName: infoSinger.fullName
+                }
+            })
         }
         
-        newSongs = songs
+        // newSongs = songs
     }
         
 
-    res.render("client/pages/search/result",{
-        titlePage : `Kết quả : ${keyword}`,
-        keyword : keyword,
-        songs : newSongs
-    })
+    
+
+    switch (type) {
+        case "result":
+            res.render("client/pages/search/result",{
+                titlePage : `Kết quả : ${keyword}`,
+                keyword : keyword,
+                songs : newSongs
+            })
+            break;
+        case "suggest":
+            res.json({
+                code : 200 ,
+                message : "Thành công",
+                songs : newSongs
+            })
+            break;
+        default:
+            break;
+    }
 
 }
