@@ -24,6 +24,19 @@ if(aplayer){
     ap.on('play', function () {
         avatar.style.animationPlayState = "running";
     });
+
+    ap.on('ended',function(){
+        const link = `/songs/listen/${dataSong._id}`
+        
+        const option = {
+            method : "PATCH"
+        }
+        fetch(link , option)
+         .then(res => res.json())
+         .then(data=>{
+            console.log(data.listen)
+         })
+    })
     //Animation play-state end
 }
 

@@ -5,6 +5,7 @@ const router: Router = Router();
 router.get("/:slugTopic", Controller.index);
 router.get("/detail/:slugSong", Controller.detail);
 router.patch("/like/:typeLike/:idSong", Controller.like);
+router.patch("/listen/:idSong", Controller.listen);
 router.patch("/favorite/:typeFavorite/:idSong", Controller.favorite);
 
 

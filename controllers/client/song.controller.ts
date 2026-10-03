@@ -120,4 +120,23 @@ export const favorite = async (req : Request ,res : Response) =>{
   })
 }
 
-
+export const listen = async (req : Request ,res : Response) =>{
+   const idSong  = req.params.idSong;
+  const song : any = await Song.findOne({
+    _id : idSong
+  }).select("listen");
+  console.log(song)
+  
+  const newListen = song.listen + 1 
+  await Song.updateOne({
+    _id : idSong
+  },{
+    listen : newListen
+  })
+  
+  res.json({
+    code : 200,
+    message : "Thanh cong",
+    listen : newListen
+  })
+}
