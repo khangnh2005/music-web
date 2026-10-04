@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-
+const slugs = require("mongoose-slug-updater");
+mongoose.plugin(slugs);
 const songSchema = new mongoose.Schema(
   {
     title: String,
@@ -18,7 +19,11 @@ const songSchema = new mongoose.Schema(
       type : Number,
       default : 0
     },
-    slug: String,
+    slug: {
+      type : String , 
+      slug : "title",
+      unique : true
+    },
     deleted: {
       type: Boolean,
       default: false,
