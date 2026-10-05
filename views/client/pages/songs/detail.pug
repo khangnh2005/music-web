@@ -13,7 +13,7 @@ block main
             div(class="inner-action inner-singer")
               <i class="fa-solid fa-microphone-lines"></i> #{song.infoSinger.fullName}
             div(class="inner-action inner-topic")
-              <i class="fa-solid fa-music"></i> #{song.infoTopic.t  itle}
+              <i class="fa-solid fa-music"></i> #{song.infoTopic.title}
             div(class="inner-action inner-listen")
               <i class="fa-solid fa-headphones"></i>
               span #{song.listen} lượt nghe
@@ -34,7 +34,7 @@ block main
           .inner-desc
             .inner-label Mô tả
             .inner-text
-              | #{song.description}
+              | !{song.description}
 
           .inner-desc
             .inner-label Lời bài hát

@@ -8,6 +8,7 @@ import { systemConfig } from "./config/config";
 import path from "path";
 
 
+
 const app: Express = express();
 const port : number | string = process.env.PORT || 3000 ;
 
@@ -31,6 +32,9 @@ app.use(express.static("public"))
 //App local variable
 app.locals.prefixAdmin = systemConfig.prefixAdmin
 //App local variable end
+
+app.use(express.json())
+app.use(express.urlencoded({extended : false}));
 
 // TinyMCE
 app.use(
