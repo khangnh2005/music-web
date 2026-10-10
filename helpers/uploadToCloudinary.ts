@@ -16,6 +16,9 @@
    export const streamUpload = (buffer: Buffer) => {
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
+      {
+        resource_type: "auto", // Tự động nhận diện cả Image, Audio (mp3, wav...), Video
+      },
       (error, result) => {
         if (result) {
           resolve(result);

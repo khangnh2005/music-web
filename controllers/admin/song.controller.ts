@@ -30,18 +30,29 @@ export const create = async (req : Request , res : Response )=>{
     })
 }
 export const createPost = async (req : Request , res : Response )=>{
+    let avatar = "", audio = "";
+    if(req.body.avatar){
+        avatar = req.body.avatar[0].url;
+    }
+
+    if(req.body.audio){
+        audio = req.body.audio[0].url;
+    }
     const dataSong = {
         title: req.body.title,
-        avatar: req.body.avatar,
         description: req.body.description,
-        singerId : req.body.singerId, 
-        topicId : req.body.topicId , 
         lyrics : req.body.lyrics , 
         // audio : String ,
-        status: req.body.status
+        singerId : req.body.singerId,
+        topicId : req.body.topicId,
+        status: req.body.status,
+        avatar: avatar,
+        audio : audio
         
     }
     const song = new Song(dataSong)
     await song.save()
+    
+    
     res.redirect(`/${systemConfig.prefixAdmin}/songs`)
 }

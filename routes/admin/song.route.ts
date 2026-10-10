@@ -9,8 +9,11 @@ const upload = multer()
 router.get("/", Controller.index);
 router.get("/create", Controller.create);
 router.post("/create",
-    upload.single("avatar"),
-    uploadCloud.uploadSingle
+    upload.fields([
+        {name : "avatar", maxCount : 1}
+        ,{name: "audio" , maxCount : 1}
+    ]),
+    uploadCloud.uploadFields
     , Controller.createPost
 );
 

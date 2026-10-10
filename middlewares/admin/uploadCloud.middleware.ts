@@ -9,3 +9,22 @@ export const uploadSingle = async (req : Request, res : Response, next : NextFun
          }
        next();
     }
+
+export const uploadFields = async (req: Request, res: Response, next: NextFunction) => {
+  
+  for (const key in req["files"]) {
+    req.body[key]  = [];
+
+    const array  = (req["files"] as any)[key] ;
+    for (const item of array) {
+      try {
+        const result = await uploadToCloudinary.streamUpload(item.buffer);
+        req.body[key].push(result);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
+  next();
+};
