@@ -4,6 +4,7 @@ import * as database from "./config/database"
 import Topic from "./models/topic.model";
 import clientRoutes from "./routes/client/index.route";
 import adminRoutes from "./routes/admin/index.route";
+import methodOverride from "method-override"
 import { systemConfig } from "./config/config";
 import path from "path";
 
@@ -42,6 +43,10 @@ app.use(
   express.static(path.join(__dirname, "node_modules", "tinymce"))
 );
 // End TinyMCE
+
+//Method 
+app.use(methodOverride("_method"))
+//Method end
 
 //route
 clientRoutes(app)
