@@ -14,7 +14,7 @@ const app: Express = express();
 const port : number | string = process.env.PORT || 3000 ;
 
 //Pug
-app.set("views", "./views");
+app.set("views", `${__dirname}/views`);
 app.set("view engine", "pug");
 //Pug End
 
@@ -27,7 +27,7 @@ database.connect()
 //database connect END
 
 //Nhung file tinh 
-app.use(express.static("public"))
+app.use(express.static(`${__dirname}/public`))
 //Nhung file tinh End
 
 //App local variable

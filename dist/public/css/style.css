@@ -1,0 +1,280 @@
+
+/* header */
+.header {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.header .inner-logo img {
+  max-height: 50px;
+  max-width: 100%;
+}
+
+.header .inner-menu > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.header .inner-menu > ul > li {
+  margin-left: 20px;
+}
+/* header end */
+
+/* footer */
+.footer {
+  background-color: #333;
+  padding:  10px;
+  text-align: center;
+  color: #ddd;
+}
+/* footer end */
+
+/* .box-head */
+.box-head{
+    margin-bottom: 30px;
+}
+
+.box-head .inner-title{
+    margin-bottom: 0;
+    font-size: 28px;
+    font-weight: 600;
+    color: green;
+}
+/* .box-head end*/
+
+
+/* song item  */
+    .song-item {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.song-item .inner-image {
+  width: 115px;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.song-item .inner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.song-item .inner-content {
+  padding: 10px;
+  flex: 1;
+}
+
+.song-item .inner-content .inner-title {
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  margin-bottom: 5px;
+}
+/* song-item end */
+
+/* Singer Detail */
+.singer-detail .inner-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f57f20;
+  margin-bottom: 15px;
+}
+
+.singer-detail .inner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.singer-detail .inner-action {
+  font-size: 13px;
+  color: #666;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.singer-detail .inner-action i {
+  margin-right: 5px;
+}
+.singer-detail  .inner-heart i {
+  color: red;
+}
+.singer-detail  .inner-heart.active i {
+  color: red;
+  font-weight: 900;
+}
+.singer-detail  .inner-heart.active{
+  color: red;
+  
+}
+.singer-detail  .inner-like i {
+  color: blue;
+}
+
+.singer-detail  .inner-like.active i  {
+  color: blue;
+  font-weight: 900;
+}
+
+.singer-detail .inner-play {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.singer-detail .inner-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+  flex-shrink: 0;
+
+  /* spin */
+  animation: spinner 10s linear infinite;
+  border: 7px solid orange;
+  animation-play-state: paused;
+}
+
+.singer-detail .inner-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.singer-detail .inner-audio {
+  flex: 1;
+}
+
+.singer-detail .inner-audio audio {
+  width: 100%;
+}
+
+.singer-detail .inner-desc {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.singer-detail .inner-desc .inner-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f57f20;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.singer-detail .inner-desc .inner-text {
+  font-size: 14px;
+  padding: 10px 15px;
+  white-space: pre-line;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* End singer-detail */
+
+/* favorite-song */
+.song-item .inner-content .inner-heart.active {
+  color: red;
+}
+.song-item .inner-content .inner-heart{
+  cursor: pointer;
+}
+
+.song-item .inner-content .inner-heart.active i{
+  font-weight: 900;
+}
+/* favorite-song end */
+
+/* Box-search */
+/* box-search */
+.box-search {
+  position: relative;
+}
+
+.box-search .inner-suggest {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  z-index: 1;
+  overflow-y: auto;
+  display: none;
+}
+
+.box-search .inner-suggest.show {
+  display: block;
+}
+
+.box-search .inner-suggest .inner-item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+.box-search .inner-suggest .inner-item:hover {
+  background: #efefef;
+  text-decoration: none;
+}
+
+/* Phần bổ sung cho ảnh & text */
+.box-search .inner-suggest .inner-item .inner-image {
+  width: 60px;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.box-search .inner-suggest .inner-item .inner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.box-search .inner-suggest .inner-item .inner-info {
+  flex: 1;
+}
+
+.box-search .inner-suggest .inner-item .inner-info .inner-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.box-search .inner-suggest .inner-item .inner-info .inner-singer {
+  font-size: 12px;
+  font-weight: 400;
+  color: #666;
+}
+/* End box-search */
