@@ -17,7 +17,8 @@ router.post("/create",
     , Controller.createPost
 );
 router.get("/edit/:idSong",Controller.edit)
-router.patch("/edit/:idSong",upload.fields([
+router.patch("/edit/:idSong",
+    upload.fields([
         {name : "avatar", maxCount : 1}
         ,{name: "audio" , maxCount : 1}
     ]),
