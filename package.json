@@ -9,8 +9,16 @@
   "scripts": {
     "start": "tsx watch index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && node copy-dir.js"
+    "build": "tsc && node copy-dir.js",
+    "add-build" : "git add dist",
+    "ts.check" : "tsc --project tsconfig.json"
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
+
   "dependencies": {
     "cloudinary": "^2.11.0",
     "dotenv": "^17.4.2",
@@ -34,6 +42,7 @@
     "@types/unidecode": "^1.1.0",
     "fs-extra": "^11.4.1",
     "nodemon": "^3.1.14",
+    "pre-commit": "^2.0.0",
     "tsx": "^4.23.9",
     "typescript": "^7.0.2"
   }
